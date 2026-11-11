@@ -1,8 +1,5 @@
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: |
-            platform-toolsname: Build LinguaQuest Android APK
+
+name: Build LinguaQuest Android APK
 
 on:
   workflow_dispatch:
@@ -15,30 +12,45 @@ permissions:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
       - name: Install dependencies
         run: npm install
+
       - name: Build web app
         run: npm run build
+
       - name: Create Android project
         run: npx cap add android
+
       - name: Sync web app into Android project
         run: npx cap sync android
+
       - name: Build debug APK
         run: cd android && chmod +x gradlew && ./gradlew assembleDebug
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
