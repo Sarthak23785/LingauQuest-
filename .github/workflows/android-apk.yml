@@ -1,4 +1,8 @@
-name: Build LinguaQuest Android APK
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-toolsname: Build LinguaQuest Android APK
 
 on:
   workflow_dispatch:
