@@ -180,6 +180,30 @@ export default function App() {
       <option>Advanced</option>
     </select>
 
+<div className="scenario-grid">
+  {[
+    { id: "introduce", title: "Introduce yourself", description: "Practise greetings and names", icon: "👋" },
+    { id: "restaurant", title: "Order food", description: "Talk to a waiter", icon: "🍽️" },
+    { id: "shopping", title: "Shopping", description: "Ask about prices and sizes", icon: "🛍️" },
+    { id: "airport", title: "At the airport", description: "Practise travel questions", icon: "✈️" },
+    { id: "daily", title: "Daily conversation", description: "Talk about everyday life", icon: "💬" }
+  ].map(scenario => (
+    <button
+      key={scenario.id}
+      type="button"
+      className={`scenario-card ${tutorScenario === scenario.id ? "selected" : ""}`}
+      onClick={() => {
+        setTutorScenario(scenario.id);
+        setTutorMessages([]);
+      }}
+    >
+      <span>{scenario.icon}</span>
+      <b>{scenario.title}</b>
+      <small>{scenario.description}</small>
+    </button>
+  ))}
+</div>
+    
     <div className="demo-note">
       <CircleHelp size={16}/>
       Live AI replies are not connected yet. We'll connect a secure AI backend in a later step.
