@@ -96,7 +96,7 @@ export default function App() {
       setQuestionIndex(i => i + 1); setSelected(""); setFeedback(null);
     } else {
       if (!completed.includes(activeLesson.id)) { setCompleted(c => [...c, activeLesson.id]);setXp((x: number) => x + activeLesson.xp) ; }
-      setStreak(s => Math.max(s, 1)); setLessonDone(true); setNotice(`Lesson complete! +${completed.includes(activeLesson.id) ? 0 : activeLesson.xp} XP earned.`);
+      setStreak((s: number) => Math.max(s, 1)); setLessonDone(true); setNotice(`Lesson complete! +${completed.includes(activeLesson.id) ? 0 : activeLesson.xp} XP earned.`);
     }
   }
   function addWord(word: any) {
