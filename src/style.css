@@ -3,3 +3,53 @@
 @media(max-width:1180px){.app-layout{grid-template-columns:190px minmax(380px,1fr);gap:22px}.right-rail{display:none}.sidebar{min-height:calc(100vh - 120px)}}
 @media(max-width:760px){.topbar{height:66px;padding:0 16px}.brand-mark{height:38px;width:38px}.brand strong{font-size:16px}.brand small{display:none}.top-actions{gap:6px}.streak-pill,.xp-pill{padding:8px;font-size:11px}.streak-pill span{display:none}.icon-btn,.avatar{height:35px;width:35px}.app-layout{display:block;padding:17px 15px 92px}.sidebar{display:none}.welcome-row{min-height:120px}.welcome-row h1{font-size:25px}.welcome-row p{font-size:11px}.welcome-illustration{width:100px;height:100px;transform:scale(.8);margin-right:-7px}.hero-card{padding:20px 17px;min-height:230px;border-radius:20px}.hero-copy{width:72%}.hero-card h2{font-size:21px}.hero-card p{font-size:11px}.hero-art{width:28%;transform:scale(.7);margin-right:-18px}.hero-meta{gap:9px;font-size:9px}.section-heading{margin-top:27px}.section-heading h2{font-size:18px}.journey-row{padding:11px;gap:10px}.lesson-node{width:40px;height:40px}.journey-copy h3{font-size:12px}.journey-copy p{font-size:10px}.journey-right{gap:7px}.journey-right>span{font-size:9px}.round-play,.replay-btn{height:33px;width:33px}.bottom-promo{padding:13px;gap:9px}.bottom-promo .outline-btn{font-size:9px;padding:9px}.bottom-promo p{line-height:1.4}.mobile-nav{display:flex;position:fixed;z-index:30;bottom:0;left:0;right:0;height:70px;padding:7px 10px max(7px,env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--line);justify-content:space-around}.mobile-nav button{display:grid;justify-items:center;align-content:center;gap:4px;background:none;border:0;color:var(--muted);font-size:9px;min-width:60px}.mobile-nav button.active{color:var(--accent2)}.lesson-shell{min-height:calc(100vh - 160px);padding-top:0}.lesson-heading{margin:33px 0 22px}.lesson-heading h1{font-size:25px}.answer-option{min-height:56px;font-size:13px}.lesson-footer{padding-top:20px}.lesson-footer .primary-btn{width:100%}.result-stats{gap:7px}.result-stats>div{min-width:0;flex:1;padding:13px 7px}.result-stats b{font-size:13px}.page-title h1{font-size:26px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-card{flex-wrap:wrap}.profile-card>div:nth-child(2){width:calc(100% - 75px);flex:1}.profile-card .outline-btn{margin-left:70px}.vocab-card{gap:9px;padding:11px}.word-symbol{height:39px;width:39px}.word-main small{line-height:1.4}.vocab-card select{max-width:84px}.notice{top:70px}.completion h1{font-size:26px}}
 @media(max-width:390px){.hero-art{display:none}.hero-copy{width:100%}.welcome-illustration{width:75px;transform:scale(.65);margin-right:-18px}.hero-meta{gap:7px}.journey-right>span{display:none}.streak-pill{gap:4px}.xp-pill{gap:4px}.brand{gap:7px}}
+/* Practice conversation scenarios */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.scenario-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--border-color, #333);
+  border-radius: 16px;
+  background: var(--card-bg, #20202b);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.scenario-card > span {
+  font-size: 27px;
+}
+
+.scenario-card b {
+  font-size: 14px;
+}
+
+.scenario-card small {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.scenario-card.selected {
+  border: 2px solid #8b5cf6;
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.scenario-card:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 360px) {
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+}
