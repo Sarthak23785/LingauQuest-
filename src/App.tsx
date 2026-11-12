@@ -65,6 +65,7 @@ export default function App() {
   const [tutorInput, setTutorInput] = useState("");
   const [tutorLevel, setTutorLevel] = useState("Beginner");
   const [tutorBusy, setTutorBusy] = useState(false);
+  const [tutorScenario, setTutorScenario] = useState("");
   useEffect(() => { localStorage.setItem("lq-dark", JSON.stringify(dark)); }, [dark]);
   useEffect(() => { localStorage.setItem("lq-xp", JSON.stringify(xp)); }, [xp]);
   useEffect(() => { localStorage.setItem("lq-completed", JSON.stringify(completed)); }, [completed]);
