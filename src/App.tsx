@@ -61,6 +61,10 @@ export default function App() {
   const [authBusy, setAuthBusy] = useState(false);
   const [vocabFilter, setVocabFilter] = useState("All");
 
+  const [tutorMessages, setTutorMessages] = useState<{ role: "user" | "assistant"; content: string }[]>([]);
+  const [tutorInput, setTutorInput] = useState("");
+  const [tutorLevel, setTutorLevel] = useState("Beginner");
+  const [tutorBusy, setTutorBusy] = useState(false);
   useEffect(() => { localStorage.setItem("lq-dark", JSON.stringify(dark)); }, [dark]);
   useEffect(() => { localStorage.setItem("lq-xp", JSON.stringify(xp)); }, [xp]);
   useEffect(() => { localStorage.setItem("lq-completed", JSON.stringify(completed)); }, [completed]);
@@ -126,7 +130,7 @@ export default function App() {
     { id: "home" as View, label: "Home", icon: Home },
     { id: "vocab" as View, label: "My words", icon: BookMarked },
     { id: "profile" as View, label: "Progress", icon: BarChart3 },
-    { id: "leaderboard" as View, label: "League", icon: Trophy }
+    { id: "leaderboard" as View, label: "League", icon: Trophy },
     { id: "tutor" as View, label: "Practice", icon: MessageCircle }
   ];
 
