@@ -3,7 +3,7 @@ import {
   Award, BookOpen, CalendarDays, Check, ChevronRight, CircleHelp, Flame,
   Globe2, GraduationCap, Home, Languages, LockKeyhole, LogIn, LogOut,
   Moon, Play, RotateCcw, Settings, Sparkles, Sun, Target, Trophy, User,
-  Volume2, X, Zap, BookMarked, BarChart3
+  Volume2, X, Zap, BookMarked, BarChart3, MessageCircle
 } from "lucide-react";
 import { supabase, supabaseConfigured } from "./supabase";
 
@@ -35,7 +35,7 @@ const initialWords = [
   { word: "Thank you", meaning: "धन्यवाद", example: "Thank you for your help.", level: "Learning" },
 ];
 
-type View = "home" | "learn" | "vocab" | "profile" | "leaderboard";
+type View = "home" | "learn" | "vocab" | "profile" | "leaderboard" | "tutor";
 const readStore = (key: string, fallback: any) => {
   try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
 };
@@ -127,6 +127,7 @@ export default function App() {
     { id: "vocab" as View, label: "My words", icon: BookMarked },
     { id: "profile" as View, label: "Progress", icon: BarChart3 },
     { id: "leaderboard" as View, label: "League", icon: Trophy }
+    { id: "tutor" as View, label: "Practice", icon: MessageCircle }
   ];
 
   return <div className={dark ? "app dark" : "app light"}>
