@@ -157,6 +157,34 @@ export default function App() {
       <main className="main-content">
         {notice && <div className="notice"><span>{notice}</span><button onClick={() => setNotice("")}><X size={16}/></button></div>}
         {view === "home" && <HomeView progress={progress} xp={xp} level={level} completed={completed} startLesson={startLesson} authUser={authUser} setShowAuth={setShowAuth}/>}
+       {view === "tutor" && <section className="page-section">
+  <div className="page-title">
+    <div>
+      <span className="eyebrow">AI LANGUAGE PRACTICE</span>
+      <h1>Conversation Partner</h1>
+      <p>Build confidence through everyday English conversations.</p>
+    </div>
+    <div className="title-icon purple">
+      <MessageCircle size={25}/>
+    </div>
+  </div>
+
+  <div className="panel">
+    <h3><Sparkles size={19}/> Your English practice</h3>
+    <p>Choose your current level to get started.</p>
+
+    <select value={tutorLevel} onChange={e => setTutorLevel(e.target.value)}>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+
+    <div className="demo-note">
+      <CircleHelp size={16}/>
+      Live AI replies are not connected yet. We'll connect a secure AI backend in a later step.
+    </div>
+  </div>
+</section>}
         {view === "learn" && activeLesson && <section className="lesson-shell">
           {!lessonDone ? <>
             <div className="lesson-top"><button className="icon-btn" onClick={() => setView("home")} title="Exit lesson"><X size={20}/></button><div className="progress-track"><span style={{width: `${((questionIndex + (feedback ? 1 : 0)) / activeLesson.questions.length) * 100}%`}}/></div><span className="question-count">{questionIndex + 1}/{activeLesson.questions.length}</span></div>
