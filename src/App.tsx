@@ -95,7 +95,7 @@ export default function App() {
     if (questionIndex < activeLesson.questions.length - 1) {
       setQuestionIndex(i => i + 1); setSelected(""); setFeedback(null);
     } else {
-      if (!completed.includes(activeLesson.id)) { setCompleted(c => [...c, activeLesson.id]); setXp(x => x + activeLesson.xp); }
+      if (!completed.includes(activeLesson.id)) { setCompleted(c => [...c, activeLesson.id]);setXp((x: number) => x + activeLesson.xp) ; }
       setStreak(s => Math.max(s, 1)); setLessonDone(true); setNotice(`Lesson complete! +${completed.includes(activeLesson.id) ? 0 : activeLesson.xp} XP earned.`);
     }
   }
